@@ -64,7 +64,8 @@ var visitedCounties = [
   "Staffordshire",
   "Worcestershire",
   "Warwickshire",
-  "Norfolk"
+  "Norfolk",
+  "Nottinghamshire"
 ];
 var totalCounties = document.querySelectorAll('.county').length;
 var percentComplete = 0; // gets iterated by animateLoad()
