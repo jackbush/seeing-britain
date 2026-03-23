@@ -1,10 +1,10 @@
-# Visited UK Counties
-A rainy afternoon project to document the fun but _extremely rainy_ project of discovering my adoptive home.
+# Seeing Britain
+Learning my adoptive home by visiting every historic county under human power
 
 ## Rules
-- Run, walk, cycle and swim activities count
-- Train/car/etc don't count
-- No specific duration rule, but must be meaningful
+- Running, walking, cycling and swimming count
+- Trains, cars, planes don't count
+- Don't think about how wet it is
 
 ## Open Source Resources
 - Font is Inter [(source)](https://rsms.me/inter/)
