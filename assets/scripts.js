@@ -1,4 +1,4 @@
-var visitedCounties = [
+const visitedCounties = [
   "Devon",
   "Somerset",
   "Surrey",
@@ -12,7 +12,6 @@ var visitedCounties = [
   "Aberdeenshire",
   "Angus",
   "Lancashire",
-  "Down",
   "Dorset",
   "Bedfordshire",
   "Berkshire",
@@ -65,21 +64,22 @@ var visitedCounties = [
   "Worcestershire",
   "Warwickshire",
   "Norfolk",
-  "Nottinghamshire"
+  "Nottinghamshire",
 ];
-var totalCounties = document.querySelectorAll('.county').length;
-var percentComplete = 0; // gets iterated by animateLoad()
-var animationInterval = 50; // used by animateLoad()
+const animationInterval = 50; // used by animateLoad()
+const totalCounties = document.querySelectorAll(".county").length;
+
+let percentComplete = 0; // gets iterated by animateLoad()
 
 function attachMouseEvents() {
-  var elTextLabel = document.querySelector(".mouse-label");
-  var mapCounties = document.querySelectorAll(".county");
+  const elTextLabel = document.querySelector(".mouse-label");
+  const mapCounties = document.querySelectorAll(".county");
 
   document.addEventListener("mousemove", (ev) => {
     elTextLabel.style.left = ev.clientX + "px";
     elTextLabel.style.top = ev.clientY - 40 + "px";
   });
-  
+
   mapCounties.forEach((el) => {
     el.addEventListener("mouseover", (ev) => {
       elTextLabel.classList.add("shown");
@@ -89,33 +89,32 @@ function attachMouseEvents() {
     el.addEventListener("mouseleave", (ev) => {
       elTextLabel.classList.remove("shown");
     });
-  
-    el.addEventListener('click', function(ev) {
+
+    el.addEventListener("click", function (ev) {
       navigator.clipboard.writeText(ev.target.dataset.name);
     });
   });
 }
 
 function updateCompletion() {
-  var elPercentComplete = document.querySelector(".js-percent-complete");
+  const elPercentComplete = document.querySelector(".js-percent-complete");
   elPercentComplete.innerHTML = percentComplete;
-  }
-  
-  function animateLoad() {
-  visitedCounties.forEach((county, idx) => {
-    setTimeout(function () {
-      document
-        .querySelector("[data-name='" + county + "']")
-        .classList
-        .add('county--visited');
-      percentComplete = Math.floor(100*(idx)/totalCounties);
-      updateCompletion(percentComplete);
-    }, idx * animationInterval);
-  })
-
-  setTimeout(() => {
-    attachMouseEvents()
-  }, visitedCounties.length * animationInterval)
 }
 
-document.addEventListener("ready", animateLoad());
+function animateLoad() {
+  visitedCounties.forEach((county, idx) => {
+    setTimeout(function () {
+      const el = document.querySelector("[data-name='" + county + "']");
+      if (el) el.classList.add("county--visited");
+
+      percentComplete = Math.floor((100 * (idx + 1)) / totalCounties);
+      updateCompletion();
+    }, idx * animationInterval);
+  });
+
+  setTimeout(() => {
+    attachMouseEvents();
+  }, visitedCounties.length * animationInterval);
+}
+
+document.addEventListener("DOMContentLoaded", animateLoad);

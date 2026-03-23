@@ -1,135 +1,133 @@
 /*VARIABLES*/
 :root {
-  --color-background: #020325;
-  --color-message: #ffffff;
-  --color-message-alt: #d5daed;
-  --color-message-link: #d5daed;
-  --color-map-unvisited-fill: #c9c9c9;
-  --color-map-unvisited-fill-hover: #b9b9b9;
-  --color-map-unvisited-stroke: #8e8e8e;
-  --color-map-visited-fill: #00ae5a;
-  --color-map-visited-fill-hover: #009f52;
-  --color-map-visited-stroke: #007720;
+    --color-background: #020325;
+    --color-message: #ffffff;
+    --color-message-alt: #d5daed;
+    --color-message-link: #d5daed;
+    --color-map-unvisited-fill: #c9c9c9;
+    --color-map-unvisited-fill-hover: #b9b9b9;
+    --color-map-unvisited-stroke: #8e8e8e;
+    --color-map-visited-fill: #00ae5a;
+    --color-map-visited-fill-hover: #009f52;
+    --color-map-visited-stroke: #007720;
 
-  --transition-hover: 50ms;
-  --transition-load: 700ms ease-in-out;
+    --transition-hover: 50ms;
+    --transition-load: 700ms ease-in-out;
+
+    font-family: "Inter", sans-serif;
 }
 
-/*FONT*/
-:root {
-  font-family: "Inter", sans-serif;
-}
 @supports (font-variation-settings: normal) {
-  :root {
-    font-family: "Inter var", sans-serif;
-  }
+    :root {
+        font-family: "Inter var", sans-serif;
+    }
 }
 
 /*PAGE*/
 body {
-  background-color: var(--color-background);
-  padding: 0;
-  margin: 0;
+    background-color: var(--color-background);
+    padding: 0;
+    margin: 0;
 }
 
 /*HEADER*/
 .header {
-  max-width: 360px;
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  margin: 24px;
-  color: var(--color-message);
+    max-width: 360px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    margin: 24px;
+    color: var(--color-message);
 }
 
 .header__title {
-  margin: 0;
-  font-size: 1.75rem;
-  font-weight: 800;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 800;
 }
 
 @media (min-width: 480px) {
-  .github-link {
-    display: inline;
-    position: fixed;
-    bottom: 24px;
-    right: 0;
-    z-index: 1;
-  }
+    .github-link {
+        display: inline;
+        position: fixed;
+        bottom: 24px;
+        right: 0;
+        z-index: 1;
+    }
 
-  .github-link a {
-    padding: 24px;
-  }        
+    .github-link a {
+        padding: 24px;
+    }
 }
 
 /*BODY TEXT*/
 p {
-  font-weight: 500;
-  line-height: 1.5;
-  margin: 0;
-  margin-top: 8px;
-  color: var(--color-message-alt);
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    margin-top: 8px;
+    color: var(--color-message-alt);
 }
 
 p a {
-  color: var(--color-message-link);
+    color: var(--color-message-link);
 }
 
 /*MAP*/
 .map-container {
-  position: fixed;
-  top: 5vh;
-  left: 10vw;
-  width: 80vw;
-  height: 90vh;
-  text-align: center;
+    position: fixed;
+    top: 5vh;
+    left: 10vw;
+    width: 80vw;
+    height: 90vh;
+    text-align: center;
 }
 
 .map-container svg {
-  max-width: 100%;
-  max-height: 100%;
-  display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
 }
 
 .county {
-  fill: var(--color-map-unvisited-fill);
-  stroke: var(--color-map-unvisited-stroke);
-  stroke-width: 0.75;
-  fill-opacity: 1;
-  fill-rule: evenodd;
-  stroke-linejoin: round;
-  stroke-miterlimit: 4;
-  stroke-dasharray: none;
-  transition: var(--transition-load);
+    fill: var(--color-map-unvisited-fill);
+    stroke: var(--color-map-unvisited-stroke);
+    stroke-width: 0.75;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    transition: var(--transition-load);
 }
 
 .county--visited {
-  fill: var(--color-map-visited-fill);
-  stroke: var(--color-map-visited-stroke);
+    fill: var(--color-map-visited-fill);
+    stroke: var(--color-map-visited-stroke);
 }
 
 .county:hover {
-  fill: var(--color-map-unvisited-fill-hover);
-  transition: var(--transition-hover) !important;
+    fill: var(--color-map-unvisited-fill-hover);
+    transition: var(--transition-hover) !important;
 }
 
 .county--visited:hover {
-  fill: var(--color-map-visited-fill-hover);
-  transition: var(--transition-hover) !important;
+    fill: var(--color-map-visited-fill-hover);
+    transition: var(--transition-hover) !important;
 }
 
 .mouse-label {
-  position: fixed;
-  z-index: 1;
-  color: var(--color-message);
-  margin: 0;
-  padding: 8px;
-  border-radius: 4px;
-  background: black;
-  opacity: 0;
-  transition: opacity 150ms;
+    position: fixed;
+    z-index: 1;
+    color: var(--color-message);
+    margin: 0;
+    padding: 8px;
+    border-radius: 4px;
+    background: black;
+    opacity: 0;
+    transition: opacity 150ms;
 }
 
 .mouse-label.shown {
-  opacity: 1;
+    opacity: 1;
 }
