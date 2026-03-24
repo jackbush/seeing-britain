@@ -103,7 +103,7 @@ p {
 
 /*COUNTIES*/
 .county {
-    fill: var(--color-map-unvisited-fill);
+    fill: url(#unvisited-hatch);
     stroke: var(--color-map-unvisited-stroke);
     stroke-width: 0.75;
     fill-opacity: 1;
