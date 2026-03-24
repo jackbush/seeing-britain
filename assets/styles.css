@@ -102,6 +102,10 @@ p {
 }
 
 /*COUNTIES*/
+.map-container svg:focus {
+    outline: none;
+}
+
 .county {
     fill: url(#unvisited-hatch);
     stroke: var(--color-map-unvisited-stroke);
@@ -119,12 +123,14 @@ p {
     stroke: var(--color-map-visited-stroke);
 }
 
-.county:hover {
+.county:hover,
+.county--keyboard-focus {
     fill: var(--color-map-unvisited-fill-hover);
     transition: var(--transition-hover) !important;
 }
 
-.county--visited:hover {
+.county--visited:hover,
+.county--visited.county--keyboard-focus {
     fill: var(--color-map-visited-fill-hover);
     transition: var(--transition-hover) !important;
 }
