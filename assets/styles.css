@@ -14,81 +14,100 @@
     --transition-hover: 50ms;
     --transition-load: 700ms ease-in-out;
 
-    font-family: "Inter", sans-serif;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 16px;
 }
 
-@supports (font-variation-settings: normal) {
-    :root {
-        font-family: "Inter var", sans-serif;
-    }
+/*RESET*/
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 /*PAGE*/
-body {
-    background-color: var(--color-background);
-    padding: 0;
+html, body {
+    height: 100%;
     margin: 0;
+    padding: 0;
 }
 
-/*HEADER*/
+body {
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+/*HEADER — thin top bar*/
 .header {
-    max-width: 360px;
-    position: relative;
-    display: inline-block;
-    z-index: 1;
-    margin: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--color-message);
+    z-index: 2;
 }
 
 .header__title {
     margin: 0;
-    font-size: 1.75rem;
-    font-weight: 800;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-@media (min-width: 480px) {
-    .github-link {
-        display: inline;
-        position: fixed;
-        bottom: 24px;
-        right: 0;
-        z-index: 1;
-    }
-
-    .github-link a {
-        padding: 24px;
-    }
+.header__explainer {
+    display: contents;
 }
 
 /*BODY TEXT*/
 p {
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 1.5;
     margin: 0;
-    margin-top: 8px;
     color: var(--color-message-alt);
+    letter-spacing: 0.02em;
 }
 
 p a {
     color: var(--color-message-link);
 }
 
+p strong {
+    color: var(--color-message);
+    font-weight: 700;
+}
+
+/*COMPLETION*/
+.header__completion {
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
 /*MAP*/
 .map-container {
-    position: fixed;
-    top: 5vh;
-    left: 10vw;
-    width: 80vw;
-    height: 90vh;
-    text-align: center;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
 }
 
 .map-container svg {
     max-width: 100%;
     max-height: 100%;
-    display: inline-block;
+    display: block;
 }
 
+/*COUNTIES*/
 .county {
     fill: var(--color-map-unvisited-fill);
     stroke: var(--color-map-unvisited-stroke);
@@ -116,16 +135,23 @@ p a {
     transition: var(--transition-hover) !important;
 }
 
+/*TOOLTIP*/
 .mouse-label {
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     color: var(--color-message);
     margin: 0;
-    padding: 8px;
-    border-radius: 4px;
-    background: black;
+    padding: 5px 10px;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     opacity: 0;
     transition: opacity 150ms;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    pointer-events: none;
+    white-space: nowrap;
 }
 
 .mouse-label.shown {
