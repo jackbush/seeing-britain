@@ -65,6 +65,12 @@ const visitedCounties = [
   "Warwickshire",
   "Norfolk",
   "Nottinghamshire",
+  "Flintshire",
+  "Denbighshire",
+  "Caernarfonshire",
+  "Merionethshire",
+  "Montgomeryshire",
+  "Radnorshire",
 ];
 const animationInterval = 50; // used by animateLoad()
 const totalCounties = document.querySelectorAll(".county").length;
@@ -80,7 +86,10 @@ function attachMouseEvents() {
   // Single tab stop on the SVG; paths get aria-labels for screen readers
   svg.setAttribute("tabindex", "0");
   svg.setAttribute("role", "application");
-  svg.setAttribute("aria-label", "Map of British counties. Use arrow keys to explore.");
+  svg.setAttribute(
+    "aria-label",
+    "Map of British counties. Use arrow keys to explore.",
+  );
   mapCounties.forEach((el) => {
     el.setAttribute("role", "img");
     el.setAttribute("aria-label", el.dataset.name);
@@ -91,7 +100,8 @@ function attachMouseEvents() {
   let keyboardFocusedEl = null;
 
   function setKeyboardFocus(el) {
-    if (keyboardFocusedEl) keyboardFocusedEl.classList.remove("county--keyboard-focus");
+    if (keyboardFocusedEl)
+      keyboardFocusedEl.classList.remove("county--keyboard-focus");
     keyboardFocusedEl = el;
     if (el) el.classList.add("county--keyboard-focus");
   }
@@ -113,7 +123,8 @@ function attachMouseEvents() {
       showTooltipForEl(countiesArray[keyboardIndex]);
     } else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") {
       ev.preventDefault();
-      keyboardIndex = (keyboardIndex - 1 + countiesArray.length) % countiesArray.length;
+      keyboardIndex =
+        (keyboardIndex - 1 + countiesArray.length) % countiesArray.length;
       setKeyboardFocus(countiesArray[keyboardIndex]);
       showTooltipForEl(countiesArray[keyboardIndex]);
     } else if (ev.key === "Escape") {
