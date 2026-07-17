@@ -1,10 +1,5 @@
 # Seeing Britain
-Learning my adoptive home by visiting every historic county under human power
-
-## Rules
-- Running, walking, cycling and swimming count
-- Trains, cars, planes don't count
-- Don't think about how wet it is
+Learning my adoptive home by visiting every historic county.
 
 ## Open Source Resources
 - Font is Inter [(source)](https://rsms.me/inter/)
