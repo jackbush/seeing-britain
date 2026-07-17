@@ -67,7 +67,6 @@ const visitedCounties = [
   "Norfolk",
   "Nottinghamshire",
   "Flintshire",
-  "Denbighshire",
   "Caernarfonshire",
   "Merionethshire",
   "Montgomeryshire",
