@@ -5,6 +5,7 @@ const visitedCounties = [
   "Middlesex",
   "Hampshire",
   "Shropshire",
+  "Denbighshire",
   "Midlothian",
   "East Lothian",
   "Morayshire",
