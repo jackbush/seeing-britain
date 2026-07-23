@@ -84,6 +84,11 @@ p {
     margin-left: auto;
 }
 
+.header__completion a {
+    color: var(--color-message-alt);
+    text-decoration: none;
+}
+
 /*MAP*/
 .map-container {
     flex: 1;
