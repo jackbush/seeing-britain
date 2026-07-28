@@ -1,5 +1,5 @@
 # Seeing Britain
-Learning my adoptive home by visiting every historic county.
+Mission to learn the corners of my adoptive home by visiting every county. Mostly done by bicycle, tracked on an interactive map.
 
 ## Open Source Resources
 - Font is Inter [(source)](https://rsms.me/inter/)
